@@ -179,7 +179,7 @@ class DEH():
 
     def random_init(self, data, n_starting_pts, seed=0):
         self.parameter_initialization(data)
-        np.random.seed = seed
+        np.random.seed(seed)
         starting_pix = np.random.choice(len(data), n_starting_pts)
         self.subsamp = starting_pix
         self.subsamp_weights()
@@ -2885,6 +2885,8 @@ class DEH():
                             for c in classifiers:
                                 if np.sum((ldata[pix]-c)**2)==0:
                                     i -= 1
+                            if -i > len(tc_sorted):
+                                continue
                             pix = tc_sorted[i]
                                 
                             
