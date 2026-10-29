@@ -4841,6 +4841,8 @@ class DEH():
                         #plt.plot(self.nodes[n].splitter[0])
                         if n_update_points > 0:
                             pm = prob_map[n] > 0
+                            if np.sum(pm) == 0:
+                                continue
                             pm_max = np.minimum(prob_map[n+'0'].max(), prob_map[n+'1'].max())
                             #print(pm_max, 'pmmax', n)
                             #if pm_max > 0.1:
