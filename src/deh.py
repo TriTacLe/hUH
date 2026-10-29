@@ -2751,7 +2751,8 @@ class DEH():
                 if n_update_points > 0:
                     om = occs[n]
                     om = om > 0
-                    
+                    if om.sum() == 0:
+                        continue
                     update_pix = np.random.choice(om.sum(), np.minimum(n_update_points, np.sum(om)))
                     #update_pix = rand_sel(om, n_update_points)
                     #ldata = data[update_pix]
